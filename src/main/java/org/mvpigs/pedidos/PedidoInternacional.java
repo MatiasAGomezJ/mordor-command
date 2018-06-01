@@ -1,6 +1,8 @@
-package org.formacion.command;
+package org.mvpigs.pedidos;
 
 import java.util.UUID;
+
+import org.mvpigs.interfaces.Pedido;
 
 /**
  * No existe una unica clase Stock

@@ -1,4 +1,4 @@
-package org.formacion.command;
+package org.mvpigs.interfaces;
 
 public interface Procesador {
 

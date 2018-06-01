@@ -1,5 +1,10 @@
 package org.mvpigs;
 
+import org.mvpigs.interfaces.*;
+import org.mvpigs.pedidos.*;
+import org.mvpigs.tratamientos.*;
+import org.mvpigs.procesadores.Oficina;
+
 public class App {
 
     public static void main(String[] args) {

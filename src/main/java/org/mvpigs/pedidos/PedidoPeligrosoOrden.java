@@ -1,6 +1,8 @@
-package org.formacion.command;
+package org.mvpigs.pedidos;
 
 import java.util.UUID;
+
+import org.mvpigs.interfaces.PedidoPeligroso;
 
 public class PedidoPeligrosoOrden implements PedidoPeligroso {
 
