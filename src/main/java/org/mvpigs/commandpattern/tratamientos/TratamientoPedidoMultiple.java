@@ -1,9 +1,9 @@
-package org.mvpigs.tratamientos;
+package org.mvpigs.commandpattern.tratamientos;
 
 import java.util.Set;
 
-import org.mvpigs.interfaces.Pedido;
-import org.mvpigs.interfaces.TratamientoPedido;
+import org.mvpigs.commandpattern.interfaces.Pedido;
+import org.mvpigs.commandpattern.interfaces.TratamientoPedido;
 
 public class TratamientoPedidoMultiple implements TratamientoPedido {
 

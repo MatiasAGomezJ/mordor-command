@@ -1,7 +1,7 @@
-package org.mvpigs.tratamientos;
+package org.mvpigs.commandpattern.tratamientos;
 
-import org.mvpigs.interfaces.PedidoPeligroso;
-import org.mvpigs.interfaces.TratamientoPedido;
+import org.mvpigs.commandpattern.interfaces.PedidoPeligroso;
+import org.mvpigs.commandpattern.interfaces.TratamientoPedido;
 
 public class TratamientoPedidoPeligroso implements TratamientoPedido {
 
@@ -18,5 +18,9 @@ public class TratamientoPedidoPeligroso implements TratamientoPedido {
 		} else {
 			return true; // si es false ... :-(
 		}		 
+	}
+
+	public PedidoPeligroso getPedido() {
+		return this.pedido;
 	}
 }

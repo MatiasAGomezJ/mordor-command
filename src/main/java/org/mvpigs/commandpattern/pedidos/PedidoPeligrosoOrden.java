@@ -1,8 +1,8 @@
-package org.mvpigs.pedidos;
+package org.mvpigs.commandpattern.pedidos;
 
 import java.util.UUID;
 
-import org.mvpigs.interfaces.PedidoPeligroso;
+import org.mvpigs.commandpattern.interfaces.PedidoPeligroso;
 
 public class PedidoPeligrosoOrden implements PedidoPeligroso {
 
@@ -11,7 +11,8 @@ public class PedidoPeligrosoOrden implements PedidoPeligroso {
     private int peso = 0;
     private String instrucciones = null;
     
-    public PedidoPeligrosoOrden(String instrucciones) {
+    public PedidoPeligrosoOrden(String destino, String instrucciones) {
+        this.destino = destino;
         this.id = UUID.randomUUID().toString();
         this.instrucciones = instrucciones;
     }

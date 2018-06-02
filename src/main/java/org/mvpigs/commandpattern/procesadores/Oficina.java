@@ -1,7 +1,7 @@
-package org.mvpigs.procesadores;
+package org.mvpigs.commandpattern.procesadores;
 
-import org.mvpigs.interfaces.Procesador;
-import org.mvpigs.interfaces.TratamientoPedido;
+import org.mvpigs.commandpattern.interfaces.Procesador;
+import org.mvpigs.commandpattern.interfaces.TratamientoPedido;
 
 public class Oficina implements Procesador {
 

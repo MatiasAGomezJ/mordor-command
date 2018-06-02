@@ -1,8 +1,8 @@
-package org.mvpigs.pedidos;
+package org.mvpigs.commandpattern.pedidos;
 
 import java.util.UUID;
 
-import org.mvpigs.interfaces.Pedido;
+import org.mvpigs.commandpattern.interfaces.Pedido;
 
 /**
  * No existe una unica clase Stock

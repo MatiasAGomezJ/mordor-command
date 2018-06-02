@@ -1,8 +1,8 @@
-package org.mvpigs.pedidos;
+package org.mvpigs.commandpattern.pedidos;
 
 import java.util.UUID;
 
-import org.mvpigs.interfaces.Pedido;
+import org.mvpigs.commandpattern.interfaces.Pedido;
 
 public class PedidoNacional implements Pedido {
 

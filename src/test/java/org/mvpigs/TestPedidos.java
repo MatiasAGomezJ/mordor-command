@@ -1,6 +1,8 @@
 package org.mvpigs;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -8,10 +10,16 @@ import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
-import org.mvpigs.interfaces.*;
-import org.mvpigs.pedidos.*;
-import org.mvpigs.procesadores.*;
-import org.mvpigs.tratamientos.*;
+import org.mvpigs.commandpattern.interfaces.Pedido;
+import org.mvpigs.commandpattern.interfaces.Procesador;
+import org.mvpigs.commandpattern.interfaces.TratamientoPedido;
+import org.mvpigs.commandpattern.pedidos.PedidoInternacional;
+import org.mvpigs.commandpattern.pedidos.PedidoNacional;
+import org.mvpigs.commandpattern.pedidos.PedidoPeligrosoOrden;
+import org.mvpigs.commandpattern.procesadores.Oficina;
+import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoInternacional;
+import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoMultiple;
+import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoPeligroso;
 
 public class TestPedidos {
 
@@ -29,20 +37,20 @@ public class TestPedidos {
 
     @Test
     public void test_pedido_peligroso_KO() {
-        TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(new PedidoPeligrosoOrden("no ponerselo en el dedo"));
+        TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(new PedidoPeligrosoOrden("Monte del destino", "no ponerselo en el dedo"));
         assertFalse(tratamientoKO.tratar());
     }
 
     @Test
     public void test_pedido_peligroso_OK() {
-        TratamientoPedido tratamientoOK = new TratamientoPedidoPeligroso(new PedidoPeligrosoOrden("no limpiarse las uñas con este puñal"));
+        TratamientoPedido tratamientoOK = new TratamientoPedidoPeligroso(new PedidoPeligrosoOrden("Cima de los vientos", "no limpiarse las uñas con este puñal"));
         assertTrue(tratamientoOK.tratar());
     }
 
     @Test
     public void test_UUID_generator() {
         PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
-        PedidoPeligrosoOrden peligroso = new PedidoPeligrosoOrden("no limpiarse las uñas con este puñal");
+        PedidoPeligrosoOrden peligroso = new PedidoPeligrosoOrden("Cima de los vientos", "no limpiarse las uñas con este puñal");
         assertTrue(internacional.getId() != peligroso.getId());
     }
 

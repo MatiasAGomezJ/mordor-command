@@ -1,7 +1,7 @@
-package org.mvpigs.tratamientos;
+package org.mvpigs.commandpattern.tratamientos;
 
-import org.mvpigs.interfaces.TratamientoPedido;
-import org.mvpigs.pedidos.PedidoInternacional;
+import org.mvpigs.commandpattern.interfaces.TratamientoPedido;
+import org.mvpigs.commandpattern.pedidos.PedidoInternacional;
 
 public class TratamientoPedidoInternacional implements TratamientoPedido {
 
