@@ -21,12 +21,12 @@ public class PedidoNacional implements Pedido {
 		return peso;
 	}
 
-	public String getId() {
-		return this.id;
-	}
-
 	@Override
 	public String destino() {
         return this.destino;
-    }
+	}
+	
+	public String getId() {
+		return this.id;
+	}
 }

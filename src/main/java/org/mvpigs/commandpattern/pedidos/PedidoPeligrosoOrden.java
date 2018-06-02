@@ -27,11 +27,6 @@ public class PedidoPeligrosoOrden implements PedidoPeligroso {
 		return this.instrucciones;
     }
     
-    // probaremos luego con Mordor ¿?
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
-
     @Override
     public String destino() {
         return this.destino;

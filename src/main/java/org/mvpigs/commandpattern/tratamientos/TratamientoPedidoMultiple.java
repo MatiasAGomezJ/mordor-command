@@ -7,7 +7,6 @@ import org.mvpigs.commandpattern.interfaces.TratamientoPedido;
 
 public class TratamientoPedidoMultiple implements TratamientoPedido {
 
-	// private List<Pedido> pedidos;
 	private Set<Pedido> pedidos;
 	private Integer pesoTotal = 0;
 	private Long numBultos = 0L;
@@ -16,6 +15,7 @@ public class TratamientoPedidoMultiple implements TratamientoPedido {
 		this.pedidos = pedidos;
 	}
 
+	@Override
 	public boolean tratar() {
 		calcularPesoTotal();
 		calcularTotalBultos();
