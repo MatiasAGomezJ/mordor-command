@@ -3,7 +3,7 @@ package org.mvpigs.commandpattern.interfaces;
 /**
  * La interfaz PedidoPeligroso implementa el metodo
  * instrucciones
- * @param   none
+ * @param   void
  * @return  String
  * 
  * Hereda de la interfaz Pedido

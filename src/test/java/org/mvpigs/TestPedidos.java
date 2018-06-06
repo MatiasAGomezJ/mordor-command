@@ -29,7 +29,7 @@ public class TestPedidos {
      * Crea una clase TratamientoPedidoInternacional que permita tratar
      * pedidos internacionales.
      * 
-     * La clase debe permitir tratar todos los pedidos excepto 
+     * La clase permite tratar todos los pedidos excepto 
      * los que van a Mordor.
      * 
      * Crea las clases necesarias que se requieren en los casos test
@@ -59,7 +59,7 @@ public class TestPedidos {
      * Crea una clase TratamientoPedidoPeligroso que permita tratar
      * pedidos peligrosos.
      * 
-     * La clase debe permitir tratar todos los pedidos segun sus
+     * La clase permite tratar todos los pedidos segun sus
      * instrucciones excepto aquellos cuya instruccion sea 
      * "no ponerselo en el dedo". 
      * 
@@ -128,26 +128,31 @@ public class TestPedidos {
         TratamientoPedido pedidoConPeligro = new TratamientoPedidoPeligroso(new PedidoPeligrosoOrden("Cima de los vientos", "no limpiarse las uñas con este puñal"));
         assertTrue(correos.recibe(pedidoConPeligro));
     }
-    
 
-    @Test
-    public void test_calcular_peso_total() {
-        Set<Pedido> pedidos = new HashSet<>();
-        List<String> destinos = Arrays.asList("Gondor", "Minas Tirith", "Rohan");
-        List<Integer> pesos = Arrays.asList(10, 10, 10);
-    }
+    /**
+     * Crea una clase TratamientoPedidoMultiple que permita tratar
+     * pedidos multiples.
+     * 
+     * La clase permite tratar el pedido multiple si 
+     * el peso total de los pedidos es mayor que 0
+     * y 
+     * el numero de bultos coincide con el numero de
+     * pedidos individuales que forman el pedido multiple.
+     * 
+     * Crea las clases necesarias que se requieren en los casos test
+     * respetando los constructores que se exigen.
+     */
 
     @Test
     public void test_tratamiento_pedido_multiple_tratar() {
+
         /**
-         * Crea una colección de tres pedidos a "Gondor", "Minas Tirith", "Rohan"
-         * con un peso de 10 cada uno
+         * Crea una colección de tres pedidos nacionales, a "Gondor", "Minas Tirith", "Rohan"
+         * con un peso de 10 cada uno.
          * 
-         * Pasasela a TratamientoPedidosMultiple en su constructor
-         * 
-         * Completa los metodos calcularTotalBultos del pedido multiple
-         * y calcularNumeroBultos del pedido
+         * Pasasela a TratamientoPedidosMultiple en su constructor.
          */
+
         Set<Pedido> pedidos = new HashSet<>();
         List<String> destinos = Arrays.asList("Gondor", "Minas Tirith", "Rohan");
         List<Integer> pesos = Arrays.asList(10, 10, 10);
@@ -158,10 +163,31 @@ public class TestPedidos {
         assertTrue(pedidos.size() == 3);
 
         TratamientoPedidoMultiple pedidosMult = new TratamientoPedidoMultiple(pedidos);
+        assertNotNull(pedidosMult);
+
+        /**
+         * Completa los metodos del pedido multiple.
+         * Se valorara el uso de streams.
+         * 
+         * calcularTotalBultos
+         * @param   void
+         * @return  void
+         *   
+         * calcularPesoTotal
+         * @param   void
+         * @return  void
+         * 
+         */
+
         pedidosMult.calcularTotalBultos();
         assertEquals(3, pedidosMult.getNumBultos(), 0);
+
         pedidosMult.calcularPesoTotal();
         assertEquals(30, pedidosMult.getPesoTotal(), 0);
+
+        /**
+         * Trata el pedido multiple.
+         */
         assertTrue(pedidosMult.tratar());
     }
 }

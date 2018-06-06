@@ -19,7 +19,7 @@ public class TratamientoPedidoMultiple implements TratamientoPedido {
 	public boolean tratar() {
 		calcularPesoTotal();
 		calcularTotalBultos();
-		if (pesoTotal != 0 && numBultos == pedidos.size()) {
+		if (pesoTotal > 0 && numBultos == pedidos.size()) {
 			return true;
 		} else {
 			return false;
