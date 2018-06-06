@@ -101,7 +101,7 @@ public class TestPedidos {
     }
 
     /**
-     * Añade una clase para los pedidos nacionales
+     * Añade una clase para los pedidos nacionales.
      */
 
     @Test
@@ -113,21 +113,28 @@ public class TestPedidos {
         assertTrue(internacional.getId() != nacional.getId());
     }
     
+    /**
+     * Construye una oficina que procese todo tipo de pedidos.
+     * 
+     * La oficina implementa la interfaz procesador.
+     */
+
     @Test
     public void test_interface_procesador() {
-        Procesador procesador = new Oficina();
+        Procesador correos = new Oficina();
         TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(new PedidoInternacional("Comarca", 100));
-        procesador.recibe(pedidoInt);
+        assertTrue(correos.recibe(pedidoInt));
+
+        TratamientoPedido pedidoConPeligro = new TratamientoPedidoPeligroso(new PedidoPeligrosoOrden("Cima de los vientos", "no limpiarse las uñas con este puñal"));
+        assertTrue(correos.recibe(pedidoConPeligro));
     }
-
-
+    
 
     @Test
     public void test_calcular_peso_total() {
         Set<Pedido> pedidos = new HashSet<>();
         List<String> destinos = Arrays.asList("Gondor", "Minas Tirith", "Rohan");
         List<Integer> pesos = Arrays.asList(10, 10, 10);
-
     }
 
     @Test
