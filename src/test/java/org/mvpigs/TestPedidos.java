@@ -32,17 +32,20 @@ public class TestPedidos {
      */
     @Test
 	public void test_Mordor() {		
-        PedidoInternacional pedidoInt = new PedidoInternacional("Mordor", 100);
+        Pedido pedidoInt = new PedidoInternacional("Mordor", 100);
         assertEquals("Mordor", pedidoInt.destino());
-		TratamientoPedido tratamientoKO = new TratamientoPedidoInternacional(pedidoInt);
+		TratamientoPedido tratamientoKO = new TratamientoPedidoInternacional((PedidoInternacional) pedidoInt);
         assertNotNull(tratamientoKO);
         assertFalse(tratamientoKO.tratar());			
 	}
 
 	@Test
 	public void test_Comarca() {
-		TratamientoPedido tratamientoOK = new TratamientoPedidoInternacional(new PedidoInternacional("Comarca", 100));
-		assertTrue(tratamientoOK.tratar());
+        Pedido pedidoInt = new PedidoInternacional("Comarca", 100);
+        assertEquals("Comarca", pedidoInt.destino());
+		TratamientoPedido tratamientoOK = new TratamientoPedidoInternacional((PedidoInternacional) pedidoInt);
+        assertNotNull(tratamientoOK);        
+        assertTrue(tratamientoOK.tratar());
     }
 
     @Test
@@ -57,10 +60,18 @@ public class TestPedidos {
         assertTrue(tratamientoOK.tratar());
     }
 
+    /**
+     * Añade a las clases PedidoInternacional y PedidoPeligrosoOrden
+     * una identificador Id de tipo String
+     * autogenerado haciendo uso de la clase UUID de Java
+     * https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html
+     */
     @Test
     public void test_UUID_generator() {
         PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
         PedidoPeligrosoOrden peligroso = new PedidoPeligrosoOrden("Cima de los vientos", "no limpiarse las uñas con este puñal");
+        assertNotNull(internacional.getId());
+        assertNotNull(peligroso.getId());
         assertTrue(internacional.getId() != peligroso.getId());
     }
 

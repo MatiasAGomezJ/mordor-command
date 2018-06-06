@@ -5,9 +5,8 @@ import java.util.UUID;
 import org.mvpigs.commandpattern.interfaces.Pedido;
 
 /**
- * No existe una unica clase Stock
  * Existe una clase específica de pedido
- * por cada tipo de pedido 
+ * para cada tipo de tratamiento  
  */
 
 public class PedidoInternacional implements Pedido {
