@@ -4,6 +4,11 @@ import java.util.UUID;
 
 import org.mvpigs.commandpattern.interfaces.PedidoPeligroso;
 
+/**
+ * Existe una clase específica de pedido
+ * para cada tipo de tratamiento  
+ */
+
 public class PedidoPeligrosoOrden implements PedidoPeligroso {
 
     private final String id;

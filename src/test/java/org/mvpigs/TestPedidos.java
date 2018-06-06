@@ -100,6 +100,19 @@ public class TestPedidos {
         assertTrue(internacional.getId() != peligroso.getId());
     }
 
+    /**
+     * Añade una clase para los pedidos nacionales
+     */
+
+    @Test
+    public void test_pedido_nacional_UUDI() {
+        PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
+        assertNotNull(internacional);
+        PedidoNacional nacional = new PedidoNacional("Gondor", 50);
+        assertNotNull(nacional);
+        assertTrue(internacional.getId() != nacional.getId());
+    }
+    
     @Test
     public void test_interface_procesador() {
         Procesador procesador = new Oficina();
@@ -107,12 +120,7 @@ public class TestPedidos {
         procesador.recibe(pedidoInt);
     }
 
-    @Test
-    public void test_pedido_nacional_UUDI() {
-        PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
-        PedidoNacional nacional = new PedidoNacional("Gondor", 50);
-        assertTrue(internacional.getId() != nacional.getId());
-    }
+
 
     @Test
     public void test_calcular_peso_total() {

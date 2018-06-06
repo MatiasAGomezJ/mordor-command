@@ -4,6 +4,11 @@ import java.util.UUID;
 
 import org.mvpigs.commandpattern.interfaces.Pedido;
 
+/**
+ * Existe una clase específica de pedido
+ * para cada tipo de tratamiento  
+ */
+
 public class PedidoNacional implements Pedido {
 
 	private final String id;
