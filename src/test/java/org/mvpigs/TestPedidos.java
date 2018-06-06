@@ -2,6 +2,7 @@ package org.mvpigs;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
@@ -23,10 +24,19 @@ import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoPeligroso;
 
 public class TestPedidos {
 
+    /**
+     * Crea una clase TratamientoPedidoInternacional que permita tratar
+     * pedidos internacionales.
+     * La clase debe permitir tratar todos los pedidos excepto 
+     * los que van a Mordor.
+     */
     @Test
 	public void test_Mordor() {		
-		TratamientoPedido tratamientoKO = new TratamientoPedidoInternacional(new PedidoInternacional("Mordor", 100));
-		assertFalse(tratamientoKO.tratar());		
+        PedidoInternacional pedidoInt = new PedidoInternacional("Mordor", 100);
+        assertEquals("Mordor", pedidoInt.destino());
+		TratamientoPedido tratamientoKO = new TratamientoPedidoInternacional(pedidoInt);
+        assertNotNull(tratamientoKO);
+        assertFalse(tratamientoKO.tratar());			
 	}
 
 	@Test
