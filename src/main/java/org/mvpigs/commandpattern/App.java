@@ -1,6 +1,8 @@
 package org.mvpigs.commandpattern;
 
 import org.mvpigs.commandpattern.interfaces.Pedido;
+import org.mvpigs.commandpattern.interfaces.PedidoPeligroso;
+import org.mvpigs.commandpattern.interfaces.TratamientoPedido;
 import org.mvpigs.commandpattern.pedidos.PedidoInternacional;
 import org.mvpigs.commandpattern.pedidos.PedidoPeligrosoOrden;
 import org.mvpigs.commandpattern.procesadores.Oficina;
@@ -14,26 +16,23 @@ public class App {
         Oficina oficina = new Oficina();
 
         Pedido pedido = new PedidoInternacional("Comarca", 10);
-        TratamientoPedidoInternacional tratamientoInt = new TratamientoPedidoInternacional(
-                                                                (PedidoInternacional) pedido);
-        System.out.println(oficina.printarStatus(oficina.procesa(tratamientoInt), 
-                                                 tratamientoInt.getPedido()));
+        TratamientoPedido tratamientoInt = new TratamientoPedidoInternacional(
+                                                    (PedidoInternacional) pedido);
+        System.out.println(oficina.printarStatus(oficina.procesa(tratamientoInt), pedido));
 
         pedido = new PedidoInternacional("Mordor", 10);
         tratamientoInt = new TratamientoPedidoInternacional((PedidoInternacional) pedido);
-        System.out.println(oficina.printarStatus(oficina.procesa(tratamientoInt), 
-                                                 tratamientoInt.getPedido()));
+        System.out.println(oficina.printarStatus(oficina.procesa(tratamientoInt), pedido));
 
-        TratamientoPedidoPeligroso peligroso = new TratamientoPedidoPeligroso(
-                                                    new PedidoPeligrosoOrden("Cima de los vientos", 
-                                                                             "no limpiarse las uñas con este puñal"));
-        System.out.println(oficina.printarStatus(oficina.procesa(peligroso), 
-                                                 peligroso.getPedido()));
+        pedido = new PedidoPeligrosoOrden("Cima de los vientos", 
+                                          "no limpiarse las uñas con este puñal");
+        TratamientoPedido peligroso = new TratamientoPedidoPeligroso((PedidoPeligroso) pedido);
+        System.out.println(oficina.printarStatus(oficina.procesa(peligroso), pedido));
 
-        peligroso = new TratamientoPedidoPeligroso(
-                        new PedidoPeligrosoOrden("Monde del destino", 
-                                                 "no ponerselo en el dedo"));
+        pedido = new PedidoPeligrosoOrden("Monde del destino", 
+                                          "no ponerselo en el dedo");
+        peligroso = new TratamientoPedidoPeligroso((PedidoPeligroso) pedido);
         System.out.println(oficina.printarStatus(oficina.procesa(peligroso), 
-                                                 peligroso.getPedido()));   
+                                                 pedido));   
     }
 }
