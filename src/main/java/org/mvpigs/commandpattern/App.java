@@ -32,7 +32,6 @@ public class App {
         pedido = new PedidoPeligrosoOrden("Monde del destino", 
                                           "no ponerselo en el dedo");
         peligroso = new TratamientoPedidoPeligroso((PedidoPeligroso) pedido);
-        System.out.println(oficina.printarStatus(oficina.procesa(peligroso), 
-                                                 pedido));   
+        System.out.println(oficina.printarStatus(oficina.procesa(peligroso), pedido));   
     }
 }
