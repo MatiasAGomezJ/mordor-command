@@ -39,7 +39,8 @@ public class TestPedidos {
      * respetando los constructores que se exigen.
      */
     @Test
-	public void test_Mordor() {		
+	public void test_Mordor() {	
+
         Pedido pedidoInt = new PedidoInternacional("Mordor", 100);
         assertEquals("Mordor", pedidoInt.destino());
 
@@ -51,6 +52,7 @@ public class TestPedidos {
 
 	@Test
 	public void test_Comarca() {
+
         Pedido pedidoInt = new PedidoInternacional("Comarca", 100);
         assertEquals("Comarca", pedidoInt.destino());
 
@@ -73,6 +75,7 @@ public class TestPedidos {
      */
     @Test
     public void test_pedido_peligroso_KO() {
+
         Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino", 
                                                            "no ponerselo en el dedo");
         assertEquals("Monte del destino", pedidoConPeligro.destino());
@@ -85,6 +88,7 @@ public class TestPedidos {
 
     @Test
     public void test_pedido_peligroso_OK() {
+
         Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Cima de los vientos", 
                                                            "no limpiarse las uñas con este puñal");
         assertEquals("Cima de los vientos", pedidoConPeligro.destino());
@@ -102,6 +106,7 @@ public class TestPedidos {
      */
     @Test
     public void test_UUID_generator() {
+
         PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
         PedidoPeligrosoOrden peligroso = new PedidoPeligrosoOrden("Cima de los vientos", 
                                                                   "no limpiarse las uñas con este puñal");
@@ -117,6 +122,7 @@ public class TestPedidos {
 
     @Test
     public void test_pedido_nacional_UUDI() {
+
         PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
         assertNotNull(internacional);
         PedidoNacional nacional = new PedidoNacional("Gondor", 50);
@@ -134,6 +140,7 @@ public class TestPedidos {
 
     @Test
     public void test_interface_procesador() {
+        
         Procesador correos = new Oficina();
         TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(
                                             new PedidoInternacional("Comarca", 100));
