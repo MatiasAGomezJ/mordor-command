@@ -23,6 +23,9 @@ import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoInternacional;
 import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoMultiple;
 import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoPeligroso;
 
+/**
+ * NO PUEDES MODIFICAR EL CODIGO DE LOS CASOS TEST 
+ */
 public class TestPedidos {
 
     /**

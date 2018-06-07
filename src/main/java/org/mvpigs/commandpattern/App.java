@@ -28,16 +28,17 @@ import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoPeligroso;
  * el tipo de tratamiento que ha de aplicar a cada pedido,
  * y sera el propio pedido el que decida como debe ser tratado.
  * 
- * PASA LOS CASOS TEST PROPUESTOS y utilizalos como guia para el desarrollo. 
+ * PASA LOS CASOS TEST PROPUESTOS y utilizalos como guia para el desarrollo.
+ * NO PUEDES MODIFICAR EL CODIGO DE LOS CASOS TEST 
  * 
- * La clase App.java contiene el main y ha de funcionar.
+ * La clase App.java contiene el MAIN y ha de funcionar.
  * 
- * - Crea un proyecto Maven que incluya tu nombre y apellidos.
+ * - Crea un proyecto MAVEN que incluya tu nombre y apellidos.
  * - Realiza commits periódicamente mientras avanzas en el desarrollo de la aplicación.
  * - Publica tu solucion en GitHub.
  * - Enviame tu proyecto comprimido en un ZIP a gelpiorama@gmail.com
  * 
- * No olvides dibujar a mano alzada el diagrama de clases UML de tu solucion
+ * No olvides dibujar a mano alzada el DIAGRAMA DE CLASES UML de tu solucion
  * para completar la evaluacion de la parte practica de ED. 
  */
 
@@ -61,7 +62,7 @@ public class App {
         TratamientoPedido peligroso = new TratamientoPedidoPeligroso((PedidoPeligroso) pedido);
         System.out.println(oficina.printarStatus(oficina.procesa(peligroso), pedido));
 
-        pedido = new PedidoPeligrosoOrden("Monde del destino", 
+        pedido = new PedidoPeligrosoOrden("Monte del destino", 
                                           "no ponerselo en el dedo");
         peligroso = new TratamientoPedidoPeligroso((PedidoPeligroso) pedido);
         System.out.println(oficina.printarStatus(oficina.procesa(peligroso), pedido));   
