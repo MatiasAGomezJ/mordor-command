@@ -11,6 +11,6 @@ package org.mvpigs.commandpattern.interfaces;
 
 public interface Procesador {
 
-    public boolean recibe(TratamientoPedido pedido);
+    public boolean procesa(TratamientoPedido pedido);
 
 }

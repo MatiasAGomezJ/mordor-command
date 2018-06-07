@@ -40,7 +40,8 @@ public class TestPedidos {
         Pedido pedidoInt = new PedidoInternacional("Mordor", 100);
         assertEquals("Mordor", pedidoInt.destino());
 
-		TratamientoPedido tratamientoKO = new TratamientoPedidoInternacional((PedidoInternacional) pedidoInt);
+		TratamientoPedido tratamientoKO = new TratamientoPedidoInternacional(
+                                                    (PedidoInternacional) pedidoInt);
         assertNotNull(tratamientoKO);
         assertFalse(tratamientoKO.tratar());			
 	}
@@ -50,7 +51,8 @@ public class TestPedidos {
         Pedido pedidoInt = new PedidoInternacional("Comarca", 100);
         assertEquals("Comarca", pedidoInt.destino());
 
-		TratamientoPedido tratamientoOK = new TratamientoPedidoInternacional((PedidoInternacional) pedidoInt);
+		TratamientoPedido tratamientoOK = new TratamientoPedidoInternacional(
+                                                    (PedidoInternacional) pedidoInt);
         assertNotNull(tratamientoOK);        
         assertTrue(tratamientoOK.tratar());
     }
@@ -68,20 +70,24 @@ public class TestPedidos {
      */
     @Test
     public void test_pedido_peligroso_KO() {
-        Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino", "no ponerselo en el dedo");
+        Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino", 
+                                                           "no ponerselo en el dedo");
         assertEquals("Monte del destino", pedidoConPeligro.destino());
 
-        TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso((PedidoPeligroso) pedidoConPeligro);
+        TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(
+                                                    (PedidoPeligroso) pedidoConPeligro);
         assertNotNull(tratamientoKO);
         assertFalse(tratamientoKO.tratar());
     }
 
     @Test
     public void test_pedido_peligroso_OK() {
-        Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Cima de los vientos", "no limpiarse las uñas con este puñal");
+        Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Cima de los vientos", 
+                                                           "no limpiarse las uñas con este puñal");
         assertEquals("Cima de los vientos", pedidoConPeligro.destino());
 
-        TratamientoPedido tratamientoOK = new TratamientoPedidoPeligroso((PedidoPeligroso) pedidoConPeligro);
+        TratamientoPedido tratamientoOK = new TratamientoPedidoPeligroso(
+                                                    (PedidoPeligroso) pedidoConPeligro);
         assertTrue(tratamientoOK.tratar());
     }
 
@@ -94,9 +100,11 @@ public class TestPedidos {
     @Test
     public void test_UUID_generator() {
         PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
-        PedidoPeligrosoOrden peligroso = new PedidoPeligrosoOrden("Cima de los vientos", "no limpiarse las uñas con este puñal");
+        PedidoPeligrosoOrden peligroso = new PedidoPeligrosoOrden("Cima de los vientos", 
+                                                                  "no limpiarse las uñas con este puñal");
         assertNotNull(internacional.getId());
         assertNotNull(peligroso.getId());
+       
         assertTrue(internacional.getId() != peligroso.getId());
     }
 
@@ -116,17 +124,52 @@ public class TestPedidos {
     /**
      * Construye una oficina que procese todo tipo de pedidos.
      * 
-     * La oficina implementa la interfaz procesador.
+     * La oficina procesa los pedidos en funcion de si
+     * es posible tratarlos o no segun las reglas de cada
+     * tipo de pedido
      */
 
     @Test
     public void test_interface_procesador() {
         Procesador correos = new Oficina();
-        TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(new PedidoInternacional("Comarca", 100));
-        assertTrue(correos.recibe(pedidoInt));
+        TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(
+                                            new PedidoInternacional("Comarca", 100));
+        assertTrue(correos.procesa(pedidoInt));
 
-        TratamientoPedido pedidoConPeligro = new TratamientoPedidoPeligroso(new PedidoPeligrosoOrden("Cima de los vientos", "no limpiarse las uñas con este puñal"));
-        assertTrue(correos.recibe(pedidoConPeligro));
+        TratamientoPedido pedidoConPeligro = new TratamientoPedidoPeligroso(
+                                                 new PedidoPeligrosoOrden("Cima de los vientos", 
+                                                                          "no limpiarse las uñas con este puñal"));
+        assertTrue(correos.procesa(pedidoConPeligro));
+    }
+
+    /**
+     * La oficina puede enviar un mensaje que informe del
+     * status del pedido, en funcion de si ha sido posible procesarlo.
+     * 
+     * Hace uso de un tipo enumerado STATUS con las constantes
+     * ACEPTADO y RECHAZADO.
+     */
+
+    @Test
+    public void test_printar_status() {
+
+        Oficina correos = new Oficina();
+        PedidoInternacional toComarcaWithLove = new PedidoInternacional("Comarca", 100);
+        TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(toComarcaWithLove);
+
+        assertTrue(correos.procesa(pedidoInt));
+        assertEquals("Comarca ACEPTADO", correos.printarStatus(
+                                            correos.procesa(pedidoInt), toComarcaWithLove));
+
+        PedidoPeligroso pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino", 
+                                                                    "no ponerselo en el dedo");
+        TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(pedidoConPeligro);
+
+        assertFalse(correos.procesa(tratamientoKO));
+        assertEquals("Monte del destino RECHAZADO", correos.printarStatus(
+                                                        correos.procesa(tratamientoKO), 
+                                                                        pedidoConPeligro));
+
     }
 
     /**
