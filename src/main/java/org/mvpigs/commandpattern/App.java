@@ -34,7 +34,10 @@ import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoPeligroso;
  * La clase App.java contiene el MAIN y ha de funcionar.
  * NO PUEDES MODIFICAR EL CODIGO DEL MAIN
  * 
- * - Crea un proyecto MAVEN que incluya tu nombre y apellidos.
+ * Crea un proyecto MAVEN siguiendo el esquema: org.mvpigs.commandpattern
+ * Respeta la estructura del proyecto indicada 
+ * en el nombre de los paquetes que se indican en los casos test. 
+ * 
  * - Realiza commits periódicamente mientras avanzas en el desarrollo de la aplicación.
  * - Publica tu solucion en GitHub.
  * - Enviame tu proyecto comprimido en un ZIP a gelpiorama@gmail.com
