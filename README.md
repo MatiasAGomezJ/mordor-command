@@ -1,14 +1,16 @@
 COMMAND PATTERN
 ===============
 
-
 Programa la lógica de una oficina de correos que procesa pedidos.
 
 En función de si el tratamiento del pedido es posible o no la oficina procesa el pedido (`true` /`false`) e informa de su estado (aceptado /rechazado).
 
 Como los pedidos pueden ser de múltiples tipos, muchos de ellos aun desconocidos y cada uno con sus particularidades propias, vamos a usar el patrón de diseño de comportamiento **_command pattern_**.
 
-Consulta el manual de referencia para ver un ejemplo del patrón.
+Consulta el manual de referencia para ver un ejemplo del patrón:
+
+![Diagrama de clases UML Command Pattern](./diagrama_clases_UML_command_pattern.jpg)
+
 
 Aplicando el patron COMMAND no procesaremos pedidos, sino que le pasaremos a la oficina (el **procesador**) el tipo de **tratamiento** que ha de aplicar a cada pedido, y será el propio pedido el que decida cómo debe ser tratado.
 
