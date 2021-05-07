@@ -70,7 +70,7 @@ public class App {
         System.out.println(oficina.printarStatus(oficina.procesa(peligroso), pedido));
 
         pedido = new PedidoPeligrosoOrden("Monte del destino", 
-                                          "no ponerselo en el dedo");
+                                          "No ponerselo en el dedo");
         peligroso = new TratamientoPedidoPeligroso((PedidoPeligroso) pedido);
         
         System.out.println(oficina.printarStatus(oficina.procesa(peligroso), pedido));

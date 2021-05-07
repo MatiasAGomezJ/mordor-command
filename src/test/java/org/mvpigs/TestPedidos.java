@@ -2,6 +2,7 @@ package org.mvpigs;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -68,7 +69,7 @@ public class TestPedidos {
      * 
      * La clase permite tratar todos los pedidos segun sus
      * instrucciones excepto aquellos cuya instruccion sea 
-     * "no ponerselo en el dedo". 
+     * "No ponerselo en el dedo". 
      * 
      * Crea las clases necesarias que se requieren en los casos test
      * respetando los constructores que se exigen.
@@ -77,7 +78,7 @@ public class TestPedidos {
     public void test_pedido_peligroso_KO() {
 
         Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino", 
-                                                           "no ponerselo en el dedo");
+                                                           "No ponerselo en el dedo");
         assertEquals("Monte del destino", pedidoConPeligro.destino());
 
         TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(
@@ -90,7 +91,7 @@ public class TestPedidos {
     public void test_pedido_peligroso_OK() {
 
         Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Cima de los vientos", 
-                                                           "no limpiarse las uñas con este puñal");
+                                                           "No urgarse en las uñas con este puñal");
         assertEquals("Cima de los vientos", pedidoConPeligro.destino());
 
         TratamientoPedido tratamientoOK = new TratamientoPedidoPeligroso(
@@ -113,7 +114,7 @@ public class TestPedidos {
         assertNotNull(internacional.getId());
         assertNotNull(peligroso.getId());
        
-        assertTrue(internacional.getId() != peligroso.getId());
+        assertNotEquals(internacional.getId(), peligroso.getId());
     }
 
     /**
@@ -127,7 +128,7 @@ public class TestPedidos {
         assertNotNull(internacional);
         PedidoNacional nacional = new PedidoNacional("Gondor", 50);
         assertNotNull(nacional);
-        assertTrue(internacional.getId() != nacional.getId());
+        assertNotEquals(internacional.getId(), nacional.getId());
     }
     
     /**
@@ -148,7 +149,7 @@ public class TestPedidos {
 
         TratamientoPedido pedidoConPeligro = new TratamientoPedidoPeligroso(
                                                  new PedidoPeligrosoOrden("Cima de los vientos", 
-                                                                          "no limpiarse las uñas con este puñal"));
+                                                "No urgarse las uñas con este puñal"));
         assertTrue(correos.procesa(pedidoConPeligro));
     }
 
@@ -172,7 +173,7 @@ public class TestPedidos {
                                             correos.procesa(pedidoInt), toComarcaWithLove));
 
         PedidoPeligroso pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino", 
-                                                                    "no ponerselo en el dedo");
+                                                                    "No ponerselo en el dedo");
         TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(pedidoConPeligro);
 
         assertFalse(correos.procesa(tratamientoKO));
@@ -213,7 +214,7 @@ public class TestPedidos {
         for (int i=0; i<destinos.size(); i++) {
             pedidos.add(new PedidoNacional(destinos.get(i), pesos.get(i)));
         }
-        assertTrue(pedidos.size() == 3);
+        assertEquals(3, pedidos.size());
 
         TratamientoPedidoMultiple pedidosMult = new TratamientoPedidoMultiple(pedidos);
         assertNotNull(pedidosMult);
