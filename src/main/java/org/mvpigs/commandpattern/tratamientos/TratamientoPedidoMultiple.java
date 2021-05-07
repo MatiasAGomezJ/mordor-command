@@ -7,7 +7,7 @@ import org.mvpigs.commandpattern.interfaces.TratamientoPedido;
 
 public class TratamientoPedidoMultiple implements TratamientoPedido {
 
-	private Set<Pedido> pedidos;
+	private final Set<Pedido> pedidos;
 	private Integer pesoTotal = 0;
 	private Long numBultos = 0L;
 

@@ -5,7 +5,7 @@ import org.mvpigs.commandpattern.pedidos.PedidoInternacional;
 
 public class TratamientoPedidoInternacional implements TratamientoPedido {
 
-    private PedidoInternacional pedido = null;
+    private final PedidoInternacional pedido;
 
     public TratamientoPedidoInternacional(PedidoInternacional pedido) {
         this.pedido = pedido;
