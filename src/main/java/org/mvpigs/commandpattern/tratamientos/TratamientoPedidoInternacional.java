@@ -13,11 +13,7 @@ public class TratamientoPedidoInternacional implements TratamientoPedido {
 
 	@Override
     public boolean tratar() {
-        if (pedido.destino().equals("Mordor")) {
-            return false;
-        } else {
-            return true;
-        }
+        return ! pedido.destino().equals("Mordor");
     }
 
     public PedidoInternacional getPedido() {

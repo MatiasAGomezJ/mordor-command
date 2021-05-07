@@ -110,7 +110,7 @@ public class TestPedidos {
 
         PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
         PedidoPeligrosoOrden peligroso = new PedidoPeligrosoOrden("Cima de los vientos", 
-                                                                  "no limpiarse las uñas con este puñal");
+                                                                  "No urgarse en las uñas con este puñal");
         assertNotNull(internacional.getId());
         assertNotNull(peligroso.getId());
        
@@ -149,7 +149,7 @@ public class TestPedidos {
 
         TratamientoPedido pedidoConPeligro = new TratamientoPedidoPeligroso(
                                                  new PedidoPeligrosoOrden("Cima de los vientos", 
-                                                "No urgarse las uñas con este puñal"));
+                                                "No urgarse en las uñas con este puñal"));
         assertTrue(correos.procesa(pedidoConPeligro));
     }
 

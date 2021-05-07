@@ -10,18 +10,12 @@ public class Oficina implements Procesador {
 	@Override
 	public boolean procesa(TratamientoPedido tratamiento) {
 				
-        if (tratamiento.tratar()) {
-			return true;
-		} else {
-			return false;
-		}        	
+        return tratamiento.tratar();        	
 	}
 
 	public String printarStatus(boolean status, Pedido pedido) {
-        if (status) {
-            return pedido.destino() + " " + Status.ACEPTADO.name();
-        } else {
-            return pedido.destino() + " " + Status.RECHAZADO.name();
-        }
+        return status? 
+				pedido.destino() + " " + Status.ACEPTADO.name():
+				pedido.destino() + " " + Status.RECHAZADO.name();
     }
 }

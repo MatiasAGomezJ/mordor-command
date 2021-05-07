@@ -64,7 +64,7 @@ public class App {
         System.out.println(oficina.printarStatus(oficina.procesa(tratamientoInt), pedido));
 
         pedido = new PedidoPeligrosoOrden("Cima de los vientos", 
-                                          "no limpiarse las uñas con este puñal");
+                                          "No urgarse en las uñas con este puñal");
         TratamientoPedido peligroso = new TratamientoPedidoPeligroso((PedidoPeligroso) pedido);
         
         System.out.println(oficina.printarStatus(oficina.procesa(peligroso), pedido));

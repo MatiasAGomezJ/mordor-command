@@ -7,6 +7,8 @@ package org.mvpigs.commandpattern.interfaces;
  * @return  String
  * 
  * Hereda de la interfaz Pedido
+ * 
+ * ISP
  */
 
 public interface PedidoPeligroso extends Pedido {

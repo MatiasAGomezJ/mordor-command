@@ -13,11 +13,7 @@ public class TratamientoPedidoPeligroso implements TratamientoPedido {
 
 	public boolean tratar() {
 		// tratar el pedido segun las instrucciones
-		if (pedido.instrucciones().equals("No ponerselo en el dedo")) {
-			return false;
-		} else {
-			return true; // si es false ... :-(
-		}		 
+		return ! pedido.instrucciones().equals("No ponerselo en el dedo");
 	}
 
 	public PedidoPeligroso getPedido() {
