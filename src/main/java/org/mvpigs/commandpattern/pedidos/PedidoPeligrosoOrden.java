@@ -17,8 +17,8 @@ public class PedidoPeligrosoOrden implements PedidoPeligroso {
     private String instrucciones = null;
     
     public PedidoPeligrosoOrden(String destino, String instrucciones) {
-        this.destino = destino;
         this.id = UUID.randomUUID().toString();
+        this.destino = destino;
         this.instrucciones = instrucciones;
     }
 
