@@ -40,7 +40,6 @@ import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoPeligroso;
  * 
  * - Realiza commits periódicamente mientras avanzas en el desarrollo de la aplicación.
  * - Publica tu solucion en GitHub.
- * - Enviame tu proyecto comprimido en un ZIP a gelpiorama@gmail.com
  * 
  * No olvides dibujar a mano alzada el DIAGRAMA DE CLASES UML de tu solucion
  * para completar la evaluacion de la parte practica de ED. 
